@@ -1,0 +1,21 @@
+<form>
+<div>
+  <input
+    placeholder="Логин"
+    type="text"
+    [(ngModel)]="loginForm.login"
+    required
+  />
+</div>
+<div>
+  <input
+    placeholder="Пароль"
+    type="password"
+    [(ngModel)]="loginForm.password"
+    required
+  />
+</div>
+
+<button>Войти</button>
+<button>Зарегистрироваться</button>
+</form>
