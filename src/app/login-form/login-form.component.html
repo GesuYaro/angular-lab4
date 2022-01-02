@@ -1,21 +1,42 @@
-<form>
+<form (ngSubmit)="print()">
 <div>
   <input
     placeholder="Логин"
     type="text"
-    [(ngModel)]="loginForm.login"
-    required
+    [formControl]="login"
   />
 </div>
+
+<div *ngIf="login.invalid && login.touched"
+    class="alert">
+  <div *ngIf="login.errors?.['required']">
+    Логин не может быть пустым
+  </div>
+  <div *ngIf="login.errors?.['minlength']">
+    Логин должен быть не короче 3 символов
+  </div>
+</div>
+
 <div>
   <input
     placeholder="Пароль"
     type="password"
-    [(ngModel)]="loginForm.password"
-    required
+    [formControl]="password"
   />
 </div>
 
-<button>Войти</button>
+<div *ngIf="password.invalid && password.touched"
+    class="alert">
+  <div *ngIf="password.errors?.['required']">
+    Пароль не может быть пустым
+  </div>
+  <div *ngIf="password.errors?.['minlength']">
+    Пароль должен быть не короче 3 символов
+  </div>
+</div>
+
+
+
+<button type="submit">Войти</button>
 <button>Зарегистрироваться</button>
 </form>

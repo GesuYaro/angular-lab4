@@ -63,6 +63,14 @@ app-login-form button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
+app-login-form button:hover{
 	background: #c56600;
+}
+
+app-login-form .alert {
+  color: red;
+  font-size: 13px; 
+  font-family: 'Lato', sans-serif; 
+  display: flex;
+  justify-content: center;
 }
