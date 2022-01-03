@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 
@@ -9,7 +10,7 @@ import { LoginFormComponent } from './login-page/login-form/login-form.component
 import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, MatTabsModule ],
+  imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, MatTabsModule ],
   declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent ],
   bootstrap:    [ AppComponent ]
 })
