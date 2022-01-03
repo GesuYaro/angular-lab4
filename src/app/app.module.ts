@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './login-page/header/header.component';
 import { LoginFormComponent } from './login-page/login-form/login-form.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { ResultsTableComponent } from './main-page/results-table/results-table.component';
 
 @NgModule({
   imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, MatTabsModule ],
-  declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent ],
+  declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent, MainPageComponent, ResultsTableComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
