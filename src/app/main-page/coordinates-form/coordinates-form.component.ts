@@ -21,6 +21,7 @@ export class CoordinatesFormComponent implements OnInit {
 
   r = new FormControl(null, [
     Validators.required,
+    Validators.min(0),
   ]);
 
   constructor() { }

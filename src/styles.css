@@ -5,6 +5,7 @@ body {
 .error-hovered {
   border: 1px solid red;
   border-radius: 5px;
+  width: fit-content;
 }
 
 /* app-header */
