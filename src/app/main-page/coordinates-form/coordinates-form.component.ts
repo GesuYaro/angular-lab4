@@ -16,7 +16,9 @@ export class CoordinatesFormComponent implements OnInit {
 
   y = new FormControl(null, [
     Validators.required,
-    RegExValidator.patternValidator(/\b-?[0-5]\b/, {isInRange: true}),
+    RegExValidator.patternValidator(/\b-?\d\b/, {isInRange: true}),
+    Validators.min(-5),
+    Validators.max(5),
   ]);
 
   r = new FormControl(null, [
