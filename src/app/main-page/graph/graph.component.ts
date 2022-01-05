@@ -35,6 +35,7 @@ export class GraphComponent implements OnInit {
                   L 150 ${150 - this.r * 60}
                   L 150 ${150 - this.r * 30}
                   A ${this.r * 30} ${this.r * 30} 0 0 1 ${150 + this.r * 30} 150
+                  L 150 150
                   `
   }
 
