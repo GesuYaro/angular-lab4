@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
+  radius = 2;
+
+  updateRadius(newRad: number) {
+    this.radius = newRad;
+  }
+
   constructor() { }
 
   ngOnInit() {

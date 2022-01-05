@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-graph',
@@ -10,6 +10,11 @@ export class GraphComponent implements OnInit {
   readonly dashes = Array<number>();
   r = 2;
   Dpath = '';
+
+  @Input() set radius(num: number) {
+    this.r = num;
+    this.updateDpath();
+  }
 
   constructor() { 
     this.updateDpath();

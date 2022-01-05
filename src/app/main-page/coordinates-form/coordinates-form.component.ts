@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 import { RegExValidator } from './RegExValidator';
@@ -9,6 +10,8 @@ import { RegExValidator } from './RegExValidator';
   styleUrls: ['./coordinates-form.component.css']
 })
 export class CoordinatesFormComponent implements OnInit {
+
+  @Output() onRadiusChange = new EventEmitter<number>()
 
   x = new FormControl(null, [
     Validators.required,
@@ -39,6 +42,16 @@ export class CoordinatesFormComponent implements OnInit {
       this.y.markAsTouched();
       this.r.markAsTouched();
     }
+  }
+
+  changeRadius() {
+    if (this.r.value === '') return;
+    let numRad = Number.parseFloat(this.r.value);
+    if (numRad < 0) {
+      this.r.markAsTouched();
+      return;
+    }
+    this.onRadiusChange.emit(numRad);
   }
 
 }

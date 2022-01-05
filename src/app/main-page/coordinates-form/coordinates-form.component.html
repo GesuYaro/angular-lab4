@@ -50,39 +50,39 @@
     <label for="r">
     <span class="letter-label">R: </span>
       <div class="form_radio_btn">
-        <input id="rm2" type="radio" name="r" value="-2" [formControl]="r">
+        <input id="rm2" type="radio" name="r" value="-2" (change)="changeRadius()" [formControl]="r">
         <label for="rm2">-2</label>
       </div>
       <div class="form_radio_btn">
-        <input id="rm15" type="radio" name="r" value="-1.5" [formControl]="r">
+        <input id="rm15" type="radio" name="r" value="-1.5" (change)="changeRadius()"[formControl]="r">
         <label for="rm15">-1.5</label>
       </div>
       <div class="form_radio_btn">
-        <input id="rm1" type="radio" name="r" value="-1" [formControl]="r">
+        <input id="rm1" type="radio" name="r" value="-1" (change)="changeRadius()" [formControl]="r">
         <label for="rm1">-1</label>
       </div>
       <div class="form_radio_btn">
-        <input id="rm05" type="radio" name="r" value="-0.5" [formControl]="r">
+        <input id="rm05" type="radio" name="r" value="-0.5" (change)="changeRadius()"[formControl]="r">
         <label for="rm05">-0.5</label>
       </div>
       <div class="form_radio_btn">
-        <input id="r0" type="radio" name="r" value="0" [formControl]="r">
+        <input id="r0" type="radio" name="r" value="0" (change)="changeRadius()"[formControl]="r">
         <label for="r0">0</label>
       </div>
       <div class="form_radio_btn">
-        <input id="r05" type="radio" name="r" value="0.5" [formControl]="r">
+        <input id="r05" type="radio" name="r" value="0.5" (change)="changeRadius()"[formControl]="r">
         <label for="r05">0.5</label>
       </div>
       <div class="form_radio_btn">
-        <input id="r1" type="radio" name="r" value="1" [formControl]="r">
+        <input id="r1" type="radio" name="r" value="1" (change)="changeRadius()"[formControl]="r">
         <label for="r1">1</label>
       </div>
       <div class="form_radio_btn">
-        <input id="r15" type="radio" name="r" value="1.5" [formControl]="r">
+        <input id="r15" type="radio" name="r" value="1.5" (change)="changeRadius()"[formControl]="r">
         <label for="r15">1.5</label>
       </div>
       <div class="form_radio_btn">
-        <input id="r2" type="radio" name="r" value="2" [formControl]="r">
+        <input id="r2" type="radio" name="r" value="2" (change)="changeRadius()"[formControl]="r">
         <label for="r2">2</label>
       </div>
     </label>
