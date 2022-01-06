@@ -2,6 +2,18 @@ body {
   background-color: #1c2329;
 }
 
+.leftside {
+    float: left;
+    width: 50%;
+	margin-top: 2%;
+	margin-left: 10%;
+}
+
+.rightside {
+    float: right;
+	margin-right: 10%;
+}
+
 .error-hovered {
   border: 1px solid red;
   border-radius: 5px;

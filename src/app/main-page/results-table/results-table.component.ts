@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {results} from './results';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+
+import { Result } from './results';
+import { HitCheckService } from '../../services/hit-check.service'
 
 @Component({
   selector: 'app-results-table',
@@ -8,11 +12,23 @@ import {results} from './results';
 })
 export class ResultsTableComponent implements OnInit {
   
-  results = results;
+  results : Result[];
+  hitCheckService : HitCheckService;
 
-  constructor() { }
+  constructor(hitCheckService : HitCheckService) { 
+    this.hitCheckService = hitCheckService;
+    this.updateResults();
+  }
 
   ngOnInit() {
+    
+  }
+
+  
+
+  updateResults() {
+    this.hitCheckService.getPointsRequest()
+      .subscribe((data: Result[]) => this.results = data);
   }
 
 }

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './login-page/header/header.component';
@@ -13,7 +14,7 @@ import { GraphComponent } from './main-page/graph/graph.component';
 import { CoordinatesFormComponent } from './main-page/coordinates-form/coordinates-form.component';
 
 @NgModule({
-  imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
   declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent, MainPageComponent, ResultsTableComponent, GraphComponent, CoordinatesFormComponent],
   bootstrap:    [ AppComponent ]
 })
