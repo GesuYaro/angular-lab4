@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from "rxjs";
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 import { Result } from './results';
-import { HitCheckService } from '../../services/hit-check.service'
+import { HitUpdaterService } from '../../services/hit-updater.service'
 
 @Component({
   selector: 'app-results-table',
@@ -12,23 +13,32 @@ import { HitCheckService } from '../../services/hit-check.service'
 })
 export class ResultsTableComponent implements OnInit {
   
-  results : Result[];
-  hitCheckService : HitCheckService;
+  hitServiceSubscription!: Subscription;
+  results : Result[] = [];
+  hitService : HitUpdaterService;
 
-  constructor(hitCheckService : HitCheckService) { 
-    this.hitCheckService = hitCheckService;
-    this.updateResults();
+  constructor(hitService : HitUpdaterService) { 
+    this.hitService = hitService;
   }
 
   ngOnInit() {
     
+    this.hitServiceSubscription = this.hitService.hitRequestStatus$.subscribe({
+      next: value => {
+        if (value != null) {
+          if (value.length == 1) {
+            this.results.push(value[0]);
+          } else if (value.length > 1) {
+            this.results = value;
+          } else {
+            this.results.push(value as unknown as Result);
+          }
+        }
+      }
+    });
+    
+    this.hitService.getAllHits();
   }
 
-  
-
-  updateResults() {
-    this.hitCheckService.getPointsRequest()
-      .subscribe((data: Result[]) => this.results = data);
-  }
 
 }

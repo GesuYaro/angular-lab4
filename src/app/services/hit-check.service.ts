@@ -16,4 +16,8 @@ export class HitCheckService {
     return this.http.get<Result[]>("http://localhost:8080/api/points", {observe: 'body', responseType: 'json'})
   }
 
+  addPointRequest(x: number, y: number, r: number) {
+    return this.http.post<Result[]>("http://localhost:8080/api/points/checkhit", {'x': x, 'y': y, 'r': r}, {observe: 'body', responseType: 'json'})
+  }
+
 }

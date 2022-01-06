@@ -82,5 +82,8 @@
       id="graph-path"
   />
 
+  <circle 
+    *ngFor="let point of results" [attr.cx]="point.x * 60 + 150" [attr.cy]="-point.y * 60 + 150" r="5" attr.fill="{{point.result ? '#00FF00' : '#FF0000'}}"
+  />
 
 </svg>

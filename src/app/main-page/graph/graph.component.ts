@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Subscription } from "rxjs";
+
+import { Result } from '../results-table/results';
+import { HitUpdaterService } from '../../services/hit-updater.service'
 
 @Component({
   selector: 'app-graph',
@@ -6,6 +10,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements OnInit {
+
+  hitServiceSubscription!: Subscription;
+  results : Result[];
+  hitService : HitUpdaterService;
 
   readonly dashes = Array<number>();
   r = 2;
@@ -16,7 +24,8 @@ export class GraphComponent implements OnInit {
     this.updateDpath();
   }
 
-  constructor() { 
+  constructor(hitService : HitUpdaterService) { 
+    this.hitService = hitService;
     this.updateDpath();
     for (let i = 30; i <= 270; i += 60) {
       this.dashes.push(i);
@@ -24,6 +33,21 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.hitServiceSubscription = this.hitService.hitRequestStatus$.subscribe({
+      next: value => {
+        if (value != null) {
+          if (value.length == 1) {
+            this.results.push(value[0]);
+          } else if (value.length > 1) {
+            this.results = value;
+          } else {
+            this.results.push(value as unknown as Result);
+          }
+        }
+      }
+    });
+
+    this.hitService.getAllHits();
   }
 
   updateDpath() {

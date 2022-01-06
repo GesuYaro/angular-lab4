@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { HitUpdaterService } from '../../services/hit-updater.service'
 
 import { RegExValidator } from './RegExValidator';
 
@@ -12,6 +13,8 @@ import { RegExValidator } from './RegExValidator';
 export class CoordinatesFormComponent implements OnInit {
 
   @Output() onRadiusChange = new EventEmitter<number>()
+
+  hitService: HitUpdaterService;
 
   x = new FormControl(null, [
     Validators.required,
@@ -29,14 +32,16 @@ export class CoordinatesFormComponent implements OnInit {
     Validators.min(0),
   ]);
 
-  constructor() { }
+  constructor(hitService: HitUpdaterService) { 
+    this.hitService = hitService;
+  }
 
   ngOnInit() {
   }
 
   submit() : void {
     if (this.x.valid && this.y.valid && this.r.valid) {
-      console.log(this.x.value, this.y.value, this.r.value);
+      this.hitService.addHit(this.x.value, this.y.value, this.r.value);
     } else {
       this.x.markAsTouched();
       this.y.markAsTouched();
