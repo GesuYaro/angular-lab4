@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './login-page/header/header.component';
 import { LoginFormComponent } from './login-page/login-form/login-form.component';
@@ -14,7 +15,7 @@ import { GraphComponent } from './main-page/graph/graph.component';
 import { CoordinatesFormComponent } from './main-page/coordinates-form/coordinates-form.component';
 
 @NgModule({
-  imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
+  imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule ],
   declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent, MainPageComponent, ResultsTableComponent, GraphComponent, CoordinatesFormComponent],
   bootstrap:    [ AppComponent ]
 })

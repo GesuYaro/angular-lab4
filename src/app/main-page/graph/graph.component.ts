@@ -12,7 +12,7 @@ import { HitUpdaterService } from '../../services/hit-updater.service'
 export class GraphComponent implements OnInit {
 
   hitServiceSubscription!: Subscription;
-  results : Result[];
+  resultsGraph : Result[];
   hitService : HitUpdaterService;
 
   readonly dashes = Array<number>();
@@ -36,18 +36,18 @@ export class GraphComponent implements OnInit {
     this.hitServiceSubscription = this.hitService.hitRequestStatus$.subscribe({
       next: value => {
         if (value != null) {
-          if (value.length == 1) {
-            this.results.push(value[0]);
-          } else if (value.length > 1) {
-            this.results = value;
+          if (value.length > 1) {
+            // console.log("replace", value);
+            this.resultsGraph = value;
           } else {
-            this.results.push(value as unknown as Result);
+            // console.log("push", value);
+            // this.resultsGraph.push(value as unknown as Result);
           }
         }
       }
     });
 
-    this.hitService.getAllHits();
+    // this.hitService.getAllHits();
   }
 
   updateDpath() {

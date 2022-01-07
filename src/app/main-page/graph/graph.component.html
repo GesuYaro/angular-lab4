@@ -83,7 +83,7 @@
   />
 
   <circle 
-    *ngFor="let point of results" [attr.cx]="point.x * 60 + 150" [attr.cy]="-point.y * 60 + 150" r="5" attr.fill="{{point.result ? '#00FF00' : '#FF0000'}}"
+    *ngFor="let point of resultsGraph" [attr.cx]="point.x * 60 + 150" [attr.cy]="-point.y * 60 + 150" r="5" attr.fill="{{point.result ? '#00FF00' : '#FF0000'}} " fill-opacity="0.8"
   />
 
 </svg>

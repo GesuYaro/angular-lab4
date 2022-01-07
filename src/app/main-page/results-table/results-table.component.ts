@@ -26,9 +26,7 @@ export class ResultsTableComponent implements OnInit {
     this.hitServiceSubscription = this.hitService.hitRequestStatus$.subscribe({
       next: value => {
         if (value != null) {
-          if (value.length == 1) {
-            this.results.push(value[0]);
-          } else if (value.length > 1) {
+          if (value.length > 1) {
             this.results = value;
           } else {
             this.results.push(value as unknown as Result);
