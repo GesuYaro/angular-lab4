@@ -1,8 +1,8 @@
-#ITMO University web dev practical work №4 (frontend part)
+# ITMO University web dev practical work №4 (frontend part)
 
 [backend part on spring](https://github.com/GesuYaro/web-lab4-back)
 
-##Task
+## Task
 
 **Вариант 90153**
 
