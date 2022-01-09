@@ -1,4 +1,4 @@
-<form (ngSubmit)="print()">
+<form (ngSubmit)="signIn()">
 <div>
   <input
     placeholder="Логин"
@@ -35,8 +35,12 @@
   </div>
 </div>
 
+<div *ngIf="loginError"
+    class="alert">
+  {{ loginErrorMessage }}
+</div>
 
 
 <button type="submit">Войти</button>
-<button>Зарегистрироваться</button>
+<button type="button" (click)="signUp()">Зарегистрироваться</button>
 </form>

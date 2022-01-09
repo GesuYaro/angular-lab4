@@ -13,10 +13,11 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ResultsTableComponent } from './main-page/results-table/results-table.component';
 import { GraphComponent } from './main-page/graph/graph.component';
 import { CoordinatesFormComponent } from './main-page/coordinates-form/coordinates-form.component';
+import { LogoutButtonComponent } from './main-page/logout-button/logout-button.component';
 
 @NgModule({
   imports:      [ BrowserModule, CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule ],
-  declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent, MainPageComponent, ResultsTableComponent, GraphComponent, CoordinatesFormComponent],
+  declarations: [ AppComponent, HeaderComponent, LoginFormComponent, LoginPageComponent, MainPageComponent, ResultsTableComponent, GraphComponent, CoordinatesFormComponent, LogoutButtonComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

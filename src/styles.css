@@ -149,7 +149,7 @@ app-coordinates-form button{
 	width: 300px;
 	height: 40px;
 	margin: 10px auto;
-  margin-left: 20px;
+    margin-left: 20px;
 	color: #fff;
 	background: #fe921f;
 	font-size: 1em;
@@ -204,3 +204,38 @@ app-coordinates-form button:hover{
 	background: #efefef;
 	color: #666;
 }
+
+/* logout button */
+
+.logout-button {
+	width: 300px;
+	height: 40px;
+	margin: 10px auto;
+    margin-left: 20px;
+	color: #fff;
+	background: #fe921f;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+app-coordinates-form button:hover{
+	background: #c56600;
+}
+
+@media screen and (max-width: 1125px) {
+	body {
+		background-color: #434a50;
+	}
+  }
+
+  @media screen and (max-width: 717px) {
+	body {
+		background-color: #312f5c;
+	}
+  }

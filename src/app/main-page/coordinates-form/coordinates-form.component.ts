@@ -54,7 +54,6 @@ export class CoordinatesFormComponent implements OnInit {
     let numRad = Number.parseFloat(this.r.value);
     if (numRad < 0) {
       this.r.markAsTouched();
-      return;
     }
     this.onRadiusChange.emit(numRad);
   }

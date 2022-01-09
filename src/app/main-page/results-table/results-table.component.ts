@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 
 import { Result } from './results';
 import { HitUpdaterService } from '../../services/hit-updater.service'
@@ -25,12 +23,14 @@ export class ResultsTableComponent implements OnInit {
     
     this.hitServiceSubscription = this.hitService.hitRequestStatus$.subscribe({
       next: value => {
-        if (value != null) {
-          if (value.length > 1) {
+        if (value != null && value != undefined) {
+          if (value.length >= this.results.length) {
             this.results = value;
           } else {
             this.results.push(value as unknown as Result);
           }
+          console.log("table", this.results);
+
         }
       }
     });

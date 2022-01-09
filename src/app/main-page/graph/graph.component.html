@@ -2,7 +2,7 @@
     id="graphic"
     widht="300"
     height="300"
-    
+    (click)="checkHit($event)"
 >
   <rect width="100%" height="100%" fill="none" />
   <line
@@ -83,7 +83,7 @@
   />
 
   <circle 
-    *ngFor="let point of resultsGraph" [attr.cx]="point.x * 60 + 150" [attr.cy]="-point.y * 60 + 150" r="5" attr.fill="{{point.result ? '#00FF00' : '#FF0000'}} " fill-opacity="0.8"
+    *ngFor="let point of getResults()" [attr.cx]="point.x * 60 + 150" [attr.cy]="-point.y * 60 + 150" r="5" attr.fill="{{point.result ? '#00FF00' : '#FF0000'}} " fill-opacity="0.8"
   />
 
 </svg>
